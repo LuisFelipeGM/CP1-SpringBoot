@@ -25,12 +25,12 @@ public class ConsoleGameModel implements Serializable {
     @Column(nullable = false, length = 9, name = "NR_VALOR")
     private Float valor;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "ID_CONSOLE", referencedColumnName = "id")
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "ID_CONSOLE")
     private ConsoleModel console;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "ID_GAME", referencedColumnName = "id")
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "ID_GAME")
     private GameModel game;
 
 }

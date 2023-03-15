@@ -20,8 +20,8 @@ public class ConsoleModel implements Serializable {
     @Column(nullable = false, length = 50, name = "NM_CONSOLE")
     private String nome;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "ID_EMPRESA", referencedColumnName = "id")
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "ID_EMPRESA")
     private EmpresaModel empresa;
 
 }

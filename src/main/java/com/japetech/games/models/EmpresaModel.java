@@ -37,7 +37,7 @@ public class EmpresaModel implements Serializable {
     private Integer numTelefone;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "ID_ENDERECO", referencedColumnName = "id")
+    @JoinColumn(name = "ID_ENDERECO")
     private EnderecoModel endereco;
 
 }
