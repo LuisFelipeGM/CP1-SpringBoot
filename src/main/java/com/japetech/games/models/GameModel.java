@@ -15,15 +15,14 @@ public class GameModel implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "ID_GAME")
     private Long id;
 
     @StringGames
-    @Column(nullable = false, length = 50, name = "NM_GAME")
+    @Column(nullable = false, length = 50)
     private String nome;
 
     @StringGames
-    @Column(nullable = false, length = 50, name = "NM_DEV")
+    @Column(nullable = false, length = 50)
     private String nomeDev;
 
 

@@ -4,9 +4,11 @@ import com.japetech.games.models.ConsoleModel;
 import com.japetech.games.models.GameModel;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
+import lombok.Data;
 
 import java.time.LocalDate;
 
+@Data
 public class ConsoleGameDto {
 
     @NotBlank(message = "A Data de Lançamento é obrigatório")

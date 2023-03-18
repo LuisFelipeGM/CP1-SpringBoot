@@ -7,9 +7,8 @@ import lombok.Data;
 import java.io.Serializable;
 
 @Data
-public class GameDto implements Serializable {
+public class GameDto  {
 
-    private static final long serialVersionUID = 1L;
 
     @NotBlank(message = "O nome do jogo é obrigatório")
     @Size(max = 50, message = "O nome do jogo deve ter no máximo 50 caracteres")

@@ -13,6 +13,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/endereco")
+@CrossOrigin(origins = "*", maxAge = 3600)
 public class EnderecoController {
 
     final EnderecoService enderecoService;
@@ -30,17 +31,17 @@ public class EnderecoController {
     public ResponseEntity<Object> saveGame(@Valid @RequestBody EnderecoDto enderecoDto){
 
         EnderecoModel enderecoModel = new EnderecoModel();
-        BeanUtils.copyProperties(enderecoModel, enderecoDto);
+        BeanUtils.copyProperties(enderecoDto, enderecoModel);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(enderecoService.save(enderecoModel));
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<EnderecoModel> getGameById(@PathVariable Long id){
-        Optional<EnderecoModel> optionalGame = Optional.ofNullable(enderecoService.findById(id));
+        Optional<EnderecoModel> optionalEndereco = Optional.ofNullable(enderecoService.findById(id));
 
-        if(optionalGame.isPresent()){
-            return ResponseEntity.ok(optionalGame.get());
+        if(optionalEndereco.isPresent()){
+            return ResponseEntity.ok(optionalEndereco.get());
         } else {
             return ResponseEntity.notFound().build();
         }

@@ -14,30 +14,26 @@ public class EmpresaModel implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @Column(name = "ID_EMPRESA")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(nullable = false, length = 50, name = "NM_EMPRESA")
+    @Column(nullable = false, length = 50)
     private String nome;
 
-    @Column(nullable = false, length = 14, unique = true, name = "CNPJ_EMPRESA")
-    @CNPJ
-    private Integer cnpj;
+    @Column(nullable = false, length = 14, unique = true)
+    private Long cnpj;
 
-    @Column(nullable = false, length = 50, name = "NM_FANTASIA")
+    @Column(nullable = false, length = 50)
     private String nomeFantasia;
 
-    @Column(nullable = false, length = 2, name = "NR_DDD")
-    @Pattern(regexp = "^[1-9]{2}$")
+    @Column(nullable = false, length = 2)
     private Integer ddd;
 
-    @Column(nullable = false, length = 9, name = "NR_TELEFONE")
-    @Pattern(regexp = "^(?:[2-8]|9[1-9])[0-9]{3}\\-[0-9]{4}$")
-    private Integer numTelefone;
+    @Column(nullable = false, length = 9)
+    private Integer telefone;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "ID_ENDERECO")
+    @JoinColumn(name = "endereco_id")
     private EnderecoModel endereco;
 
 }

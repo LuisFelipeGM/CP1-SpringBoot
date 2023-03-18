@@ -1,27 +1,28 @@
 package com.japetech.games.gamesDtos;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
+import lombok.Data;
 
 import java.io.Serializable;
 
-public class EnderecoDto implements Serializable {
+@Data
+public class EnderecoDto  {
 
-    private static final long serialVersionUID = 1L;
+    private Long id;
 
     @NotBlank(message = "O logradouro é obrigatório")
     @Size (max = 100, message = "O logradouro deve ter no máximo 100 caracteres")
     private String logradouro;
 
-    @NotBlank(message = "O número é obrigatório")
-    @Size(max = 10, message = "O número ter no máximo 10 caracteres")
-    private String numero;
+    private Integer numero;
 
     @NotBlank(message = "O bairro é obrigatório")
     @Size(max = 50, message = "O bairro ter no máximo 50 caracteres")
     private String bairro;
 
-    @NotBlank(message = "O cidade é obrigatório")
+    @NotBlank(message = "A cidade é obrigatório")
     @Size(max = 50, message = "O cidade ter no máximo 50 caracteres")
     private String cidade;
 

@@ -16,21 +16,20 @@ public class ConsoleGameModel implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "ID_CONSOLE_GAME")
     private Long id;
 
-    @Column(nullable = false, name = "DT_LANCAMENTO")
+    @Column(nullable = false)
     private LocalDate dataLancamento;
 
-    @Column(nullable = false, length = 9, name = "NR_VALOR")
+    @Column(nullable = false, length = 9)
     private Float valor;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "ID_CONSOLE")
+    @JoinColumn(name = "id_console")
     private ConsoleModel console;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "ID_GAME")
+    @JoinColumn(name = "id_game")
     private GameModel game;
 
 }

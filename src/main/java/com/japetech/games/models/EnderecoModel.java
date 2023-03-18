@@ -14,25 +14,24 @@ public class EnderecoModel implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "ID_ENDERECO")
     private Long id;
 
-    @Column(nullable = false, length = 100, name = "NM_LOGRADOURO")
+    @Column(nullable = false, length = 100)
     private String logradouro;
 
-    @Column(nullable = false, length = 10, name = "NR_NUMERO")
-    private String numero;
+    @Column(nullable = false, length = 10)
+    private Integer numero;
 
-    @Column(nullable = false, length = 50, name = "NM_BAIRRO")
+    @Column(nullable = false, length = 50)
     private String bairro;
 
-    @Column(nullable = false, length = 50, name = "NM_CIDADE")
+    @Column(nullable = false, length = 50)
     private String cidade;
 
-    @Column(nullable = false, length = 2, name = "NM_ESTADO")
+    @Column(nullable = false, length = 2)
     private String estado;
 
-    @Column(nullable = false, name = "NR_CEP")
+    @Column(nullable = false)
     private String cep;
 
 

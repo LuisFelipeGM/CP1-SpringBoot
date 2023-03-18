@@ -30,17 +30,17 @@ public class EmpresaController {
     public ResponseEntity<Object> saveGame(@Valid @RequestBody EmpresaDto empresaDto){
 
         EmpresaModel empresaModel = new EmpresaModel();
-        BeanUtils.copyProperties(empresaModel, empresaDto);
+        BeanUtils.copyProperties(empresaDto, empresaModel);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(empresaService.save(empresaModel));
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<EmpresaModel> getGameById(@PathVariable Long id){
-        Optional<EmpresaModel> optionalGame = Optional.ofNullable(empresaService.findById(id));
+        Optional<EmpresaModel> optionalempresa = Optional.ofNullable(empresaService.findById(id));
 
-        if(optionalGame.isPresent()){
-            return ResponseEntity.ok(optionalGame.get());
+        if(optionalempresa.isPresent()){
+            return ResponseEntity.ok(optionalempresa.get());
         } else {
             return ResponseEntity.notFound().build();
         }

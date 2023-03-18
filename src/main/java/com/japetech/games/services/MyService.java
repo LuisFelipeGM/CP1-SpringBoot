@@ -12,6 +12,7 @@ import java.util.Optional;
 public class MyService<T,Id> implements IMyService<T, Id> {
 
     final JpaRepository<T, Id> repository;
+
     MyService(JpaRepository<T, Id> repository) {
         this.repository = repository;
     }
@@ -26,6 +27,7 @@ public class MyService<T,Id> implements IMyService<T, Id> {
         return repository.save(object);
     }
 
+    @Transactional
     public void deleteById(@NotNull Id id){
         Optional<T> optional = repository.findById(id);
         if(optional.isPresent()){
@@ -35,6 +37,7 @@ public class MyService<T,Id> implements IMyService<T, Id> {
         }
     }
 
+    @Transactional
     public T findById(@NotNull Id id){
         Optional<T> optional = repository.findById(id);
         if(optional.isPresent()){

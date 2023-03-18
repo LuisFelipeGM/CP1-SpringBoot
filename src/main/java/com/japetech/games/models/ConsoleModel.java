@@ -17,11 +17,11 @@ public class ConsoleModel implements Serializable {
     @Column(name = "ID_CONSOLE")
     private Long id;
 
-    @Column(nullable = false, length = 50, name = "NM_CONSOLE")
+    @Column(nullable = false, length = 50)
     private String nome;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "ID_EMPRESA")
+    @JoinColumn(name = "id_empresa")
     private EmpresaModel empresa;
 
 }

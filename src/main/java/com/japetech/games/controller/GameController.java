@@ -30,7 +30,7 @@ public class GameController {
     public ResponseEntity<Object> saveGame(@Valid @RequestBody GameDto gameDto){
 
         GameModel gameModel = new GameModel();
-        BeanUtils.copyProperties(gameModel, gameDto);
+        BeanUtils.copyProperties(gameDto, gameModel);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(gameService.save(gameModel));
     }
