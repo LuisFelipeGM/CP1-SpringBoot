@@ -13,4 +13,6 @@ public class ConsoleDto {
     @Size(max = 50, message = "O nome do console deve ter no máximo 50 caracteres")
     private String nome;
 
+    private EmpresaDto empresa;
+
 }
